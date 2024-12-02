@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/output.css" />
+    <title>PageWhisper</title>
+  </head>
+  <body class="text-white bg-[url('/images/background.png')] bg-fixed bg-cover">
+    <div class="cotainer m-2 flex">
+      <div class="logo w-20 h-12">
+        <div class="book-animation perspective-distant">
+          <article
+            class="... transform-3d rotate-x-51 rotate-z-43 shadow-xl transition-all duration-500 hover:-translate-y-4 hover:rotate-x-49 hover:rotate-z-38 hover:shadow-2xl"
+          >
+            <img
+              class="mx-16 my-4"
+              src="images/book-svgrepo-com.svg"
+              width="80%"
+              height="20%"
+              alt="website logo"
+            />
+          </article>
+        </div>
+      </div>
+      <div class="search w-[100%] items-center justify-center">
+        <form
+          class="w-[100%] my-2 py-4 flex justify-center"
+          action="/search"
+          method="post"
+        >
+          <input
+            class="bg-gray-600 w-[80%] p-3 rounded-xl focus:outline-none placeholder-[#fff] text-center text-white shadow-[0px_12px_6px_rgba(255,255,255,0.6)]"
+            type="text"
+            name="search"
+            placeholder="Search your notes here📒"
+            id="search"
+          />
+        </form>
+      </div>
+    </div>
+    <div
+      class="title h-[25vh] flex justify-center items-center font-serif text-5xl"
+    >
+      <style>
+        /* Custom keyframes for typing effect */
+        @keyframes typing {
+          from {
+            width: 0;
+          }
+          to {
+            width: 55%;
+          }
+        }
+
+        /* Applying animation */
+        .typing {
+          overflow: hidden; /* Prevents text from overflowing */
+          white-space: nowrap; /* Keeps the text in a single line */
+          width: 0; /* Initial width for animation */
+          animation: typing 3s forwards;
+          animation-timing-function: ease-in-out;
+        }
+      </style>
+
+      <h1 class="typing">PageWhisper: Your Notes, Your Stories</h1>
+    </div>
+    <div
+      class="quote h-[5vh] flex justify-center items-center font-serif text-2xl"
+    >
+      <div class="book-animation perspective-distant">
+        <article
+          class="... transform-3d rotate-x-51 rotate-z-43 shadow-xl transition-all duration-500 hover:-translate-y-4 hover:rotate-x-49 hover:rotate-z-38 hover:shadow-2xl flex justify-center gap-2"
+        >
+          <img
+            src="images/invert-start.svg"
+            class="brightness-0 invert"
+            width="15rem"
+            height="15rem"
+            alt="start"
+          />
+          <h2>Demo Quote for you haha</h2>
+          <img
+            src="images/invert-end.svg"
+            class="brightness-0 invert"
+            width="15rem"
+            height="15rem"
+            alt="end"
+          />
+        </article>
+      </div>
+    </div>
+    <div class="add m-2 p-12 flex justify-center items-center">
+      <a href="/add"
+        ><button
+          class="bg-black p-4 rounded-xl focus:outline-none hover:ring-2 hover:ring-white text-white shadow-[0px_12px_6px_rgba(255,255,255,0.6)]"
+        >
+          Add a new note
+        </button></a
+      >
+    </div>
+    <section class="book list flex flex-col gap-2">
+      <% data.forEach(element => { %>
+      <div class="book-item perspective-distant">
+        <article
+          class="... transform-3d rotate-x-51 rotate-z-43 shadow-xl transition-all duration-500 hover:-translate-y-4 hover:rotate-x-49 hover:rotate-z-38 hover:shadow-2xl"
+        >
+          <div class="book-item-container flex justify-center items-center">
+            <div class="title font-serif text-2xl w-[30%] text-center m-2">
+              <%= element.title %>
+            </div>
+            <div class="note w-[70%] m-4"><%= element.note %></div>
+          </div>
+
+          <div class="change flex justify-end my-4 mx-20 gap-8">
+            <form action="/edit" method="post">
+              <input type="hidden" name="data-id" value="<%= element.id %>" />
+              <input type="hidden" name="data-title" value="<%= element.title %>" />
+              <input type="hidden" name="data-note" value="<%= element.note %>" />
+              <button
+                class="bg-green-500 w-20 p-2 rounded-xl focus:outline-none hover:ring-2 hover:ring-white text-white"
+                type="submit"
+              >
+                Edit
+              </button>
+            </form>
+
+            <form action="/delete" method="post">
+            <input type="hidden" name="delete-id" value="<%= element.id %>" />
+            <button
+                class="bg-red-600 w-20 p-2 rounded-xl focus:outline-none hover:ring-2 hover:ring-white text-white"
+                type="submit"
+                >
+                Delete
+              </button>
+            </form>
+          </div>
+        </article>
+      </div>
+      <% }); %>
+    </section>
+
+    <!-- <div class="book-animation perspective-distant">
+      <article
+        class="... transform-3d rotate-x-51 rotate-z-43 shadow-xl transition-all duration-500 hover:-translate-y-4 hover:rotate-x-49 hover:rotate-z-38 hover:shadow-2xl"
+      >
+        <img src="images/book-transparent-background-17.png" width="50px" />
+      </article>
+    </div> -->
+  </body>
+</html>

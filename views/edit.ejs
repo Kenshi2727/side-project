@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/output.css" />
+    <title>PageWhisper</title>
+  </head>
+  <body class="text-white bg-[url('/images/background.png')] bg-fixed  bg-cover">
+    <div class="cotainer m-2 flex">
+      <div class="logo w-20 h-12">
+        <div class="book-animation perspective-distant">
+          <article
+            class="... transform-3d rotate-x-51 rotate-z-43 shadow-xl transition-all duration-500 hover:-translate-y-4 hover:rotate-x-49 hover:rotate-z-38 hover:shadow-2xl"
+          >
+            <img
+              class="mx-16 my-4"
+              src="images/book-svgrepo-com.svg"
+              width="80%"
+              height="20%"
+              alt="website logo"
+            />
+          </article>
+        </div>
+      </div>
+      <div class="search w-[100%] items-center justify-center">
+        <form
+          class="w-[100%] my-2 py-4 flex justify-center"
+          action="/search"
+          method="post"
+        >
+          <input
+            class="bg-gray-600 w-[80%] p-3 rounded-xl focus:outline-none placeholder-[#fff] text-center text-white shadow-[0px_12px_6px_rgba(255,255,255,0.6)]"
+            type="text"
+            name="search"
+            placeholder="Search any keyword🔑"
+            id="search"
+          />
+        </form>
+      </div>
+    </div>
+    <div
+      class="title h-[25vh] flex justify-center items-center font-serif text-5xl"
+    >
+      <style>
+        /* Custom keyframes for typing effect */
+        @keyframes typing {
+          from {
+            width: 0;
+          }
+          to {
+            width: 44%;
+          }
+        }
+
+        /* Applying animation */
+        .typing {
+         overflow: hidden; /* Prevents text from overflowing */
+         white-space: nowrap; /* Keeps the text in a single line */
+         width: 0; /* Initial width for animation */
+         animation: typing 3s forwards;
+         animation-timing-function: ease-in-out;
+        }
+    </style>
+
+    <h1 class="typing">PageWhisper: Unveil Your Tale</h1>
+    </div>
+    
+    <section class="book list flex flex-col gap-2">
+    <div class="book-item perspective-distant">
+        <article
+        class="... transform-3d rotate-x-51 rotate-z-43 shadow-xl transition-all duration-500 hover:-translate-y-4 hover:rotate-x-49 hover:rotate-z-38 hover:shadow-2xl"
+        >
+        <div class="book-item-container flex justify-center items-center">
+            <div class="add-title font-serif text-2xl w-[30%] text-center m-20">
+            
+            <form
+                class="w-[100%] my-2 py-4 flex justify-center"
+                action="/edit-note"
+                method="post"
+            >
+                <input
+                class="bg-transparent w-[80%] p-3 rounded-xl focus:outline-none placeholder-[#fff] text-center text-white shadow-[0px_0px_12px_6px_rgba(255,255,255,0.6)]"
+                type="text"
+                name="new-title"
+                placeholder="Enter title here📝"
+                id="new-title"
+                <% if(title){ %> 
+                value="<%= title %>"
+                <% } %>
+                />
+            </div>
+            <div class="add-note w-[70%] mx-2">
+                <input
+                class="bg-transparent text-xl w-[80%] h-[30vh] p-3 rounded-xl focus:outline-none placeholder-[#fff] text-center text-white shadow-[0px_0px_12px_6px_rgba(255,255,255,0.6)]"
+                type="text"
+                name="new-note"
+                placeholder="Write your note here📒"
+                id="new-note"
+                <% if(note){ %> 
+                value="<%= note %>"
+                <% } %>
+                />
+            </form>
+                
+               <script>
+                document.addEventListener("keydown", function(e) {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    const forms=document.querySelectorAll("form");
+                    forms.forEach(form=>form.submit());
+                  }
+                });
+               </script>
+          </div>
+        
+      </div>
+    </article>
+    </section>
+
+    <!-- <div class="book-animation perspective-distant">
+      <article
+        class="... transform-3d rotate-x-51 rotate-z-43 shadow-xl transition-all duration-500 hover:-translate-y-4 hover:rotate-x-49 hover:rotate-z-38 hover:shadow-2xl"
+      >
+        <img src="images/book-transparent-background-17.png" width="50px" />
+      </article>
+    </div> -->
+  </body>
+</html>
