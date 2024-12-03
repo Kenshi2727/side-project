@@ -104,23 +104,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx tailwindcss -i ./public/src/input.css -o ./public/src/output.css --watch"
   },
-
- "$schema": "https://railway.app/railway.schema.json",
-  "build": {
-    "builder": "NIXPACKS",
-    "nixpacksPlan": {
-      "phases": {
-        "install": {
-          "cmds": ["npm ci --omit=dev"]
-        }
-      }
-    }
-  },
-  "deploy": {
-    "restartPolicyType": "ON_FAILURE",
-    "restartPolicyMaxRetries": 5
-  },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
