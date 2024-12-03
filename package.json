@@ -102,7 +102,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx tailwindcss -i ./public/src/input.css -o ./public/src/output.css --watch"
+    "start": "npx tailwindcss -i ./public/src/input.css -o ./public/src/output.css --watch",
+    "build": "npm install --omit=dev && npm run compile"
   },
   "keywords": [],
   "author": "",
