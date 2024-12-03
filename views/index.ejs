@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="src/output.css" />
     <title>PageWhisper</title>
   </head>
-  <body class="text-white bg-[url('/images/background.png')] bg-fixed bg-cover">
+  <body class="text-white bg-[url('/images/background3.png')] bg-fixed bg-cover">
     <div class="cotainer m-2 flex">
       <div class="logo w-20 h-12">
         <div class="book-animation perspective-distant">
@@ -79,7 +79,8 @@
             height="15rem"
             alt="start"
           />
-          <h2>Demo Quote for you haha</h2>
+          <h2>A room without books is like a body without a soul."
+            — Marcus Tullius Cicero</h2>
           <img
             src="images/invert-end.svg"
             class="brightness-0 invert"
@@ -140,6 +141,12 @@
       <% }); %>
     </section>
 
+    <% if(alertStatus===1){ %>
+      <script>
+        alert("Nothing found");
+      </script>
+      <% } %>
+  
     <!-- <div class="book-animation perspective-distant">
       <article
         class="... transform-3d rotate-x-51 rotate-z-43 shadow-xl transition-all duration-500 hover:-translate-y-4 hover:rotate-x-49 hover:rotate-z-38 hover:shadow-2xl"

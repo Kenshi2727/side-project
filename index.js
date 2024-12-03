@@ -8,7 +8,7 @@ const db = new pg.Client({
     user: "postgres",
     host: "localhost",
     database: "book-notes",
-    password: "spiralhelix27",
+    password: "<password>",
     port: 5432
 })
 
@@ -17,6 +17,7 @@ db.connect();
 let title = '';
 let note = '';
 let id = 0;
+let alertStatus = 0;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
@@ -25,8 +26,13 @@ app.get('/', async (req, res) => {
     try {
         const result = await db.query("SELECT * FROM  books")
         const data = result.rows
-        console.log(data);
-        res.render('index.ejs', { data: data });
+        // console.log(data);
+        res.render('index.ejs',
+            {
+                data: data,
+                alertStatus: alertStatus
+            });
+        alertStatus = 0;
     }
     catch (err) {
         console.log(err);
@@ -43,12 +49,13 @@ app.post('/add', async (req, res) => {
     note = req.body['new-note'];
     console.log(title);
     console.log(note);
-
-    try {
-        await db.query("INSERT INTO books(title,note) VALUES($1,$2)", [title, note]);
-    }
-    catch (err) {
-        console.log(err);
+    if (title !== '' && note !== '') {
+        try {
+            await db.query("INSERT INTO books(title,note) VALUES($1,$2)", [title, note]);
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
     res.redirect('/');
 });
@@ -72,11 +79,13 @@ app.post('/edit', (req, res) => {
 app.post('/edit-note', async (req, res) => {
     const newTitle = req.body['new-title'];
     const newNote = req.body['new-note'];
-    try {
-        await db.query("UPDATE books SET title=$1,note=$2 WHERE id=$3", [newTitle, newNote, id]);
-    }
-    catch (err) {
-        console.log(err);
+    if (newTitle !== '' && newNote !== '') {
+        try {
+            await db.query("UPDATE books SET title=$1,note=$2 WHERE id=$3", [newTitle, newNote, id]);
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
     res.redirect('/');
 });
@@ -90,5 +99,27 @@ app.post('/delete', async (req, res) => {
     }
     res.redirect('/');
 })
+
+app.post('/search', async (req, res) => {
+    const searchTerm = `%${req.body.search}%`;
+    try {
+        const result = await db.query("SELECT title,note FROM books WHERE title ILIKE $1 OR note ILIKE $1", [searchTerm]);
+        console.log("search-------->", result);
+        const data = result.rows;
+        const title = data[0].title;
+        const note = data[0].note;
+        res.render('edit.ejs',
+            {
+                title: title,
+                note: note
+            });
+    }
+    catch (err) {
+        console.log(err);
+        alertStatus = 1;
+        res.redirect('/');
+    }
+});
+
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 

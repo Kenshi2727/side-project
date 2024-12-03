@@ -635,6 +635,14 @@ video {
   width: 80%;
 }
 
+.resize-none {
+  resize: none;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -657,6 +665,10 @@ video {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.overflow-auto {
+  overflow: auto;
 }
 
 .rounded-xl {
@@ -691,6 +703,14 @@ video {
   background-image: url('/images/background.png');
 }
 
+.bg-\[url\(\'\/images\/background2\.png\'\)\] {
+  background-image: url('/images/background2.png');
+}
+
+.bg-\[url\(\'\/images\/background3\.png\'\)\] {
+  background-image: url('/images/background3.png');
+}
+
 .bg-cover {
   background-size: cover;
 }
@@ -713,6 +733,14 @@ video {
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-20 {
+  padding: 5rem;
+}
+
+.p-24 {
+  padding: 6rem;
 }
 
 .py-4 {

@@ -103,15 +103,30 @@
                 />
             </form>
                 
-               <script>
-                document.addEventListener("keydown", function(e) {
-                  if (e.key === "Enter") {
-                    e.preventDefault();
-                    const forms=document.querySelectorAll("form");
-                    forms.forEach(form=>form.submit());
+            <script>
+              document.addEventListener("keydown", function (e) {
+                // If Enter key is pressed
+                if (e.key === "Enter") {
+                  e.preventDefault();
+        
+                  // Check if the search input is focused
+                  const searchInput = document.getElementById("search");
+                  const newTitleInput = document.getElementById("new-title");
+                  const newNoteInput = document.getElementById("new-note");
+        
+                  // If the search input is focused, submit the search form
+                  if (document.activeElement === searchInput) {
+                    const searchForm = searchInput.closest("form");
+                    searchForm.submit();
+                  } 
+                  // If the new-title or new-note input is focused, submit the add form
+                  else if (document.activeElement === newTitleInput || document.activeElement === newNoteInput) {
+                    const addForm = newTitleInput.closest("form") || newNoteInput.closest("form");
+                    addForm.submit();
                   }
-                });
-               </script>
+                }
+              });
+            </script>
           </div>
         
       </div>
