@@ -109,7 +109,7 @@
   "license": "ISC",
   "description": ""
 }
-
+,
 {
   "$schema": "https://railway.app/railway.schema.json",
   "build": {
