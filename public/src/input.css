@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+/* @media ((min-width: 2560px)) {
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 50%;
+      }
+    }
+  } */
+
+  .typing{
+    overflow: hidden; /* Prevents text from overflowing */
+    white-space: nowrap; /* Keeps the text in a single line */
+    width: 0; /* Initial width for animation */
+    animation: typing 3s forwards;
+    animation-timing-function: ease-in-out;
+  }
+
+  

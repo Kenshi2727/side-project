@@ -639,10 +639,6 @@ video {
   resize: none;
 }
 
-.flex-row-reverse {
-  flex-direction: row-reverse;
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -665,10 +661,6 @@ video {
 
 .gap-8 {
   gap: 2rem;
-}
-
-.overflow-auto {
-  overflow: auto;
 }
 
 .rounded-xl {
@@ -733,14 +725,6 @@ video {
 
 .p-4 {
   padding: 1rem;
-}
-
-.p-20 {
-  padding: 5rem;
-}
-
-.p-24 {
-  padding: 6rem;
 }
 
 .py-4 {
@@ -824,6 +808,38 @@ video {
   transition-duration: 500ms;
 }
 
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* @media ((min-width: 2560px)) {
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 50%;
+      }
+    }
+  } */
+
+.typing{
+  overflow: hidden;
+  /* Prevents text from overflowing */
+  white-space: nowrap;
+  /* Keeps the text in a single line */
+  width: 0;
+  /* Initial width for animation */
+  animation: typing 3s forwards;
+  animation-timing-function: ease-in-out;
+}
+
 .hover\:-translate-y-4:hover {
   --tw-translate-y: -1rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -850,3 +866,5 @@ video {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+
+  
