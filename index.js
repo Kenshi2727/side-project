@@ -4,13 +4,15 @@ import pg from 'pg';
 
 const app = express();
 const port = 3000;
-const db = new pg.Client({
-    user: "postgres",
-    host: "autorack.proxy.rlwy.net",
-    database: "railway",
-    password: "KFtmdTNBHJsLftNwkiqyHXtfhDkTUXRX",
-    port: 34780
-})
+// const db = new pg.Client({
+//     user: "<private>",
+//     host: "<private>",
+//     database: "<private>",
+//     password: "<private>",
+//     port: 
+// })
+//obfuscated code---------------->
+const _0xbf863 = _0x20cf; function _0x20cf(_0x546157, _0x446220) { const _0x52b84b = _0x52b8(); return _0x20cf = function (_0x20cf32, _0x401d07) { _0x20cf32 = _0x20cf32 - 0xeb; let _0x1924b3 = _0x52b84b[_0x20cf32]; return _0x1924b3; }, _0x20cf(_0x546157, _0x446220); } (function (_0x1003ab, _0x51dceb) { const _0x5168fc = _0x20cf, _0x53172e = _0x1003ab(); while (!![]) { try { const _0x25599b = parseInt(_0x5168fc(0xf0)) / 0x1 + parseInt(_0x5168fc(0xf1)) / 0x2 * (parseInt(_0x5168fc(0xf5)) / 0x3) + -parseInt(_0x5168fc(0xf7)) / 0x4 + -parseInt(_0x5168fc(0xeb)) / 0x5 * (parseInt(_0x5168fc(0xed)) / 0x6) + parseInt(_0x5168fc(0xf4)) / 0x7 + -parseInt(_0x5168fc(0xec)) / 0x8 + parseInt(_0x5168fc(0xef)) / 0x9; if (_0x25599b === _0x51dceb) break; else _0x53172e['push'](_0x53172e['shift']()); } catch (_0x246605) { _0x53172e['push'](_0x53172e['shift']()); } } }(_0x52b8, 0x70814)); function _0x52b8() { const _0x4e08a2 = ['postgres', '4218534OxZEsL', '659633RzlfnF', '8lwkrCq', 'KFtmdTNBHJsLftNwkiqyHXtfhDkTUXRX', 'autorack.proxy.rlwy.net', '1401344dvlZsM', '218793FLqrVz', 'Client', '2553532MRgIuy', '1068270muFrsz', '750112YHwUsq', '12BIUboA']; _0x52b8 = function () { return _0x4e08a2; }; return _0x52b8(); } const db = new pg[(_0xbf863(0xf6))]({ 'user': _0xbf863(0xee), 'host': _0xbf863(0xf3), 'database': 'railway', 'password': _0xbf863(0xf2), 'port': 0x87dc });
 
 db.connect();
 
