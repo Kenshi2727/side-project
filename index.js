@@ -7,7 +7,7 @@ const port = 3000;
 const db = new pg.Client({
     user: "postgres",
     host: "autorack.proxy.rlwy.net",
-    database: "railways",
+    database: "railway",
     password: "KFtmdTNBHJsLftNwkiqyHXtfhDkTUXRX",
     port: 34780
 })
